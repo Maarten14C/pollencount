@@ -2,7 +2,7 @@
 % Please edit documentation in R/pollencount.R
 \name{select}
 \alias{select}
-\title{Select a grain}
+\title{Select a single grain}
 \usage{
 select(dat = info)
 }

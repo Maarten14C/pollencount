@@ -2,9 +2,9 @@
 % Please edit documentation in R/pollencount.R
 \name{ID}
 \alias{ID}
-\title{Identify a grain}
+\title{Identify a single grain}
 \usage{
-ID(dat = info, mark = TRUE, cex = 2)
+ID(dat = info, mark = TRUE, cex = 2, graphics = FALSE)
 }
 \arguments{
 \item{dat}{the underlying locations and names of the simulated grains}
@@ -12,6 +12,8 @@ ID(dat = info, mark = TRUE, cex = 2)
 \item{mark}{Draw a green tick mark or red cross for correctly or wrongly identified grains. Set to FALSE for no drawing}
 
 \item{cex}{size of the tick mark or cross}
+
+\item{graphics}{Use a fancy list (default is to use the basic one within the R terminal)}
 }
 \value{
 Whether or not the grain was identified correctly

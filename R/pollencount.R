@@ -165,4 +165,3 @@ globalVariables("info")
 # parameter position defaults to 1, the global environment
 .assign_to_global <- function(key, val, pos=1)
   assign(key, val, envir=as.environment(pos) )
-  s

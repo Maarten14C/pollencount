@@ -7,6 +7,7 @@
 \description{
 Simulate the counting of pollen or other palaeoecological 'proxies'
 This package is meant to facilitate learning to identify pollen or other microfossils under microscope slides. It is not a replacement of the real thing, as in counting real pollen under a real microscope, but aims to introduce students and researchers to how a slide of pollen grains could be identified. Possibly helpful therefore for on-line teaching.
+This package was inspired by a (closed-source) software to simulate pollen counting, developed by Dr Jane Bunting (University of Hull, UK) and presented at the virtual Palaeoscience Workshop https://virtualpalaeoscience.wordpress.com/ in May, 2020.
 }
 \author{
 Maarten Blaauw <maarten.blaauw@qub.ac.uk>
