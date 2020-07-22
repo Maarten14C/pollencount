@@ -1,0 +1,14 @@
+Package: pollencount
+Type: Package
+Title: Simulate the counting of pollen or other palaeoecological 'proxies'
+Version: 0.1.0
+Date: 2020-07-21
+Author: Maarten Blaauw
+Maintainer: Maarten Blaauw <maarten.blaauw@qub.ac.uk>
+Description: Counting pollen from a slide under a microscope can be hard to learn. This simulation tool aims to help students and researchers to start to see what pollen looks like under the microscope, and start to identify common pollen grains. Some grains are more difficult than others, and this is also simulated. The user can see how well they did in identifying the pollen grains. Photos of pollen grains were found using google, but they can be replaced with other photos/databases.
+License: GPL (>= 2)
+Imports: png (>= 0.1-7), jpeg (>= 0.1-8.1), grDevices, graphics, stats, utils
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+NeedsCompilation: no
+Packaged: 2020-05-02 11:40:28 UTC; maarten
