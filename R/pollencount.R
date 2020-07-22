@@ -138,7 +138,7 @@ ID = function(dat=info, mark=TRUE, cex=2, graphics=FALSE) {
 #' @param dat the underlying locations and names of the simulated grains
 #' @param mark Draw a green tick mark or red cross for correctly or wrongly identified grains. Set to FALSE for no drawing
 #' @param cex size of the tick mark or cross
-#' @param graphics Use a fancy list (default is to use the basic one within the R terminal)
+#' @param graphics Use a fancy list (default is to use the basic one within the R terminal, but you could try tcltk)
 #' @param round rounding of percentage, default 0 digits
 #' @export
 count = function(m=10, dat=info, mark=TRUE, cex=2, graphics=TRUE, round=0) {
