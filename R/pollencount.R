@@ -11,7 +11,6 @@
 #' @importFrom graphics locator rasterImage
 #' @importFrom jpeg readJPEG
 #' @importFrom png readPNG
-#' @importFrom caTools read.gif write.gif
 #' @importFrom magick image_read image_write image_scale
 #' @name pollencount
 NULL  
@@ -20,7 +19,7 @@ NULL
 
 # done: automatically produce thumbnails to load images faster
 
-# internal function to speed up the plotting of images, by producing smaller gifs of them
+# internal function to speed up the plotting of images, by producing smaller pngs of them
 make_thumbnails = function(dirloc=c(), size="100x100") {
   if(length(dirloc) == 0) # if not provided by the user, then use the photos of the package
     dirloc = system.file("extdata", package="pollencount")
