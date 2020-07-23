@@ -9,8 +9,6 @@
 #' @importFrom stats runif
 #' @importFrom utils read.table packageName select.list
 #' @importFrom graphics locator rasterImage
-#' @importFrom jpeg readJPEG
-#' @importFrom png readPNG
 #' @importFrom magick image_read image_write image_scale
 #' @name pollencount
 NULL  
@@ -53,7 +51,7 @@ make_thumbnails = function(dirloc=c(), size="100x100") {
 #' @param n the number of pollen grains to simulate
 #' @param dirloc the location of the folder with images (...). Currently the folder is filled with only a few pollen types and each folder has only a few roughly selected images of the pollen type as downloaded from various google searches. For future development, this would require more official sources.
 #' @param size the size of the photos as drawn on the device. Keep small for slightly more realistic simulations of the real thing. 
-#' thumb size of the thumbnail photos
+#' @param thumb size of the thumbnail photos
 #' @examples 
 #' slide(20)
 #' @export

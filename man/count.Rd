@@ -4,7 +4,7 @@
 \alias{count}
 \title{Count several grains}
 \usage{
-count(m = 10, dat = info, mark = TRUE, cex = 2, graphics = TRUE, round = 0)
+count(m = 10, dat = info, mark = TRUE, cex = 2, graphics = FALSE, round = 0)
 }
 \arguments{
 \item{m}{The number of grains to be identified}
