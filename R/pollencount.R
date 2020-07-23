@@ -12,7 +12,7 @@
 #' @importFrom jpeg readJPEG
 #' @importFrom png readPNG
 #' @importFrom caTools read.gif write.gif
-#' @importFrom magick image_read image_write
+#' @importFrom magick image_read image_write image_scale
 #' @name pollencount
 NULL  
 
