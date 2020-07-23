@@ -11,9 +11,40 @@
 #' @importFrom graphics locator rasterImage
 #' @importFrom jpeg readJPEG
 #' @importFrom png readPNG
+#' @importFrom caTools read.gif write.gif
+#' @importFrom magick image_read image_write
 #' @name pollencount
 NULL  
 
+# do: make a larger (and higher-quality) image pop up of the selected grain? Would cause issues with getting back to the original device...
+
+# done: automatically produce thumbnails to load images faster
+
+# internal function to speed up the plotting of images, by producing smaller gifs of them
+make_thumbnails = function(dirloc=c(), size="100x100") {
+  if(length(dirloc) == 0) # if not provided by the user, then use the photos of the package
+    dirloc = system.file("extdata", package="pollencount")
+
+  folders = list.dirs(paste0(dirloc, "/images"), full.names=FALSE)
+  folders = folders[-which(folders=="")]
+  for(i in folders)  {
+    if(!dir.exists(paste0(dirloc, "/thumbnails/", i)))
+      dir.create(paste0(dirloc, "/thumbnails/", i)) # make thumbnail folders if required
+
+    files = list.files(paste0(dirloc, "/images/", i, "/"))
+    for(j in files) {
+      if(length(grep(".jpg", j)) > 0)  ext = ".jpg" else
+        if(length(grep(".jpeg", j)) > 0)  ext = ".jpeg" else
+          if(length(grep(".png", j)) > 0)  ext = ".png" else
+            stop("unexpected file names, should be .jpg, .jpeg or .png (note lowercase)", FALSE)
+    base = strsplit(j, ext)[[1]][1]  # filename without the extension
+    img =  image_read(paste0(dirloc, "/images/", i, "/", j)) # read the image
+    image_write(image_scale(img, size), # write a thumbnail of the image
+      paste0(dirloc, "/thumbnails/", i, "/", base, ".png"), format="png")
+    }
+  }
+}
+ 
 
 
 #' @name slide
@@ -23,16 +54,18 @@ NULL
 #' @param n the number of pollen grains to simulate
 #' @param dirloc the location of the folder with images (...). Currently the folder is filled with only a few pollen types and each folder has only a few roughly selected images of the pollen type as downloaded from various google searches. For future development, this would require more official sources.
 #' @param size the size of the photos as drawn on the device. Keep small for slightly more realistic simulations of the real thing. 
-#' 
+#' thumb size of the thumbnail photos
 #' @examples 
 #' slide(20)
 #' @export
-slide = function(n=50, dirloc=c() , size=0.05) {
+slide = function(n=50, dirloc=c() , size=0.05, thumb="100x100") {
   # location of the photos of the pollen or other proxies
   # This folder should contain a folder 'images', which contain folders with the pollen types, and in those folders are multiple images of said pollen types. 
   # Some photos could be made be more difficult to ID than others - this still needs work. Identify difficulty with a code in the photo's filename? Or simply have a constant mix of easy and difficult grains in the folders?
   if(length(dirloc) == 0) # if not provided by the user, then use the photos of the package
-    dirloc = system.file("extdata", package=packageName())
+    dirloc = system.file("extdata", package="pollencount")
+    
+  make_thumbnails(dirloc, thumb)  # make smaller images so they load faster
 
   # proportions of the pollen types to be drawn randomly from the pictures. Column 1 contains the type names, column 2 their proportions. Separated by commas. The proportions do not necessarily have to sum to 1
   #  this file should live in the folder of dirloc, next to (but not within) the folder 'images'
@@ -41,7 +74,7 @@ slide = function(n=50, dirloc=c() , size=0.05) {
   props = props[order(props[,1]),] # sort alphabetically
 
   # now find the different types, located as folders within the umbrella folder 'images'
-  types = list.dirs(paste0(dirloc, "/images"), full.names=FALSE)
+  types = list.dirs(paste0(dirloc, "/thumbnails"), full.names=FALSE)
   types = types[-which(types=="")]
   types = sort(types) # sort alphabetically
   
@@ -51,9 +84,11 @@ slide = function(n=50, dirloc=c() , size=0.05) {
   # now get the photos for each simulated grain
   photos <- c()
   for(i in 1:n) {
-    files = list.files(paste0(dirloc, "/images/", types[ polsim[i] ]))
+    files = list.files(paste0(dirloc, "/thumbnails/", types[ polsim[i] ]), full.names=TRUE)
     photos[i] = files[sample(1:length(files), 1)]
   }
+  
+  photos <<- photos
   
   # simulate the x and y locations of the grains on the slide
   xloc = runif(n)
@@ -65,15 +100,9 @@ slide = function(n=50, dirloc=c() , size=0.05) {
   
   # plot the photos of the pollen grains
   plot(0, type="n", xlim=c(0,1), ylim=c(0,1), xlab="", ylab="")  
-  for(i in 1:n) {
-    img = paste0(dirloc, "/images/", types[ polsim[i] ], "/", photos[i])
-    if(grep('jpg', photos[i], TRUE) || grep('jpeg', photos[i], TRUE))
-      img = readJPEG(img) else
-      if(grep('png', photos[i], TRUE))
-        readPNG(img) else
-          stop('unexpected file name; photos should be .jpg, .jpeg or .png') 
-    rasterImage(img, xloc[i]-size, yloc[i]-size, xloc[i]+size, yloc[i]+size)
-  }
+  for(i in 1:n)
+    rasterImage(image_read(photos[i]),
+      xloc[i]-size, yloc[i]-size, xloc[i]+size, yloc[i]+size)
 }
 
 
@@ -141,7 +170,7 @@ ID = function(dat=info, mark=TRUE, cex=2, graphics=FALSE) {
 #' @param graphics Use a fancy list (default is to use the basic one within the R terminal, but you could try tcltk)
 #' @param round rounding of percentage, default 0 digits
 #' @export
-count = function(m=10, dat=info, mark=TRUE, cex=2, graphics=TRUE, round=0) {
+count = function(m=10, dat=info, mark=TRUE, cex=2, graphics=FALSE, round=0) {
   if(!interactive())
     message("This function can only run in an interactive session.")	
   message("Click on a grain, choose among the list, click on another grain, etc., until you're finished")

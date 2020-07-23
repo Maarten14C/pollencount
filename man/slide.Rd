@@ -4,14 +4,15 @@
 \alias{slide}
 \title{Simulate a slide of pollen grains}
 \usage{
-slide(n = 50, dirloc = c(), size = 0.05)
+slide(n = 50, dirloc = c(), size = 0.05, thumb = "100x100")
 }
 \arguments{
 \item{n}{the number of pollen grains to simulate}
 
 \item{dirloc}{the location of the folder with images (...). Currently the folder is filled with only a few pollen types and each folder has only a few roughly selected images of the pollen type as downloaded from various google searches. For future development, this would require more official sources.}
 
-\item{size}{the size of the photos as drawn on the device. Keep small for slightly more realistic simulations of the real thing.}
+\item{size}{the size of the photos as drawn on the device. Keep small for slightly more realistic simulations of the real thing. 
+thumb size of the thumbnail photos}
 }
 \description{
 Simulate a slide of pollen or other palaeoecological 'proxies', to be counted by the user
