@@ -5,10 +5,9 @@
 #' This package was inspired by a (closed-source) software to simulate pollen counting, developed by Dr Jane Bunting (University of Hull, UK) and presented at the virtual Palaeoscience Workshop https://virtualpalaeoscience.wordpress.com/ in May, 2020.
 #' @docType package
 #' @author Maarten Blaauw <maarten.blaauw@qub.ac.uk>
-#' @importFrom graphics plot points 
+#' @importFrom graphics plot points locator rasterImage
 #' @importFrom stats runif
 #' @importFrom utils read.table packageName select.list
-#' @importFrom graphics locator rasterImage
 #' @importFrom magick image_read image_write image_scale
 #' @name pollencount
 NULL  
