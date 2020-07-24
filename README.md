@@ -78,5 +78,5 @@ This project is licensed under the GPL (>= 2) licence.
 
 ## Acknowledgments
 
-* Dr. Jane Bunting for the original idea
+* Dr. Jane Bunting [https://www.hull.ac.uk/staff-directory/jane-bunting] for the original idea
 * the ViPs Network [https://virtualpalaeoscience.wordpress.com/] 
