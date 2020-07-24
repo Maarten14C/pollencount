@@ -14,7 +14,7 @@ You need to have a recent version of R installed (best >= 4.0.0), and have suffi
 
 Within R, type the following commands:
 
-To install the /devtools/ R package (if you haven't already done so):
+To install the $devtools$ R package (if you haven't already done so):
 ```
 install.packages('devtools')
 ```
@@ -36,14 +36,17 @@ library(pollencount)
 
 ## Running pollencount
 
-Now we're going to simulate a slide view with 50 randomly selected pollen types. For now, pollencount uses an in-built very basic and small database of pictures of only 4 pollen types (Quercus, Pinus, Alnus, Poaceae), with only a few photos for each pollen type. By default, only 50 types are selected, randomly
+Now we're going to simulate a slide view with 50 randomly selected pollen types. For now, pollencount uses an in-built very basic and small database of pictures of only 4 pollen types (Quercus, Pinus, Alnus, Poaceae), with only a few photos for each pollen type. By default, only 50 types are selected, randomly (according to the proportions listed in the file proportions.csv; see later). The command to simulate a slide is:
 
+```
+slide()
+```
 
-This small database could either be expanded in the future, or more likely you can build your own database and link to it, through providing the directory of the database (in this example it's at "~/MyPollenPictures"):
+The small database that comes with this package could either be expanded in the future, or more likely you can build your own database and link to it, through providing the directory of the database (in this example it's at "~/MyPollenPictures"):
 ```
 slide(dirloc="~/MyPollenPictures")
 ```
-The database should have folders containing the photos of the pollen types. The name of each folder is the name of the pollen type. Also provide a file proportions.csv in the top folder, which gives the to-be-simulated proportions of each pollen type.
+The database should have folders containing the photos of the pollen types. The name of each folder is the name of the pollen type. Also provide a file proportions.csv in the top folder, which gives the to-be-simulated proportions of each pollen type. In the example database, this causes /Pinus/
 
 ### Break down into end to end tests
 
