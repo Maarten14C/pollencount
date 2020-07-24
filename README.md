@@ -36,7 +36,7 @@ library(pollencount)
 
 ## Running pollencount
 
-Now we're going to simulate a slide view with 50 randomly selected pollen types. For now, pollencount uses an in-built very basic and small database of pictures of only 4 pollen types (Quercus, Pinus, Alnus, Poaceae), with only a few photos for each pollen type. By default, only 50 types are selected randomly (according to the proportions listed in the file proportions.csv; see later). The command to simulate a slide is:
+Now we're going to simulate a slide view with 50 randomly selected pollen types. For now, pollencount uses an in-built very basic and small database of pictures of only 4 pollen types (*Quercus*, *Pinus*, *Alnus*, *Poaceae*), with only a few photos for each pollen type. By default, only 50 types are selected randomly (according to the proportions listed in the file proportions.csv; see later). The command to simulate a slide is:
 
 ```
 slide()
@@ -48,7 +48,7 @@ slide(dirloc="~/MyPollenPictures")
 ```
 The database should have folders containing the photos of the pollen types. The name of each folder is the name of the pollen type. The photos should be saved, within their respective folder, as .png or .jpg files. Also provide a file proportions.csv in the top folder, which gives the to-be-simulated proportions of each pollen type. In the example database, this causes *Pinus* grains to be simulated at 10% abundance, *Alnus* at 30%, etc. 
 
-You can change the number of simulated grains, e.g. to 100:
+You can change the number of simulated grains to, say, 100:
 ```
 slide(n=100)
 ```
@@ -61,8 +61,6 @@ count()
 Click on the device which shows the pollen grains, then once your cursor has changed to a + (or something similar), click on one of the grains to identify it. A list of options will appear in the terminal. Select the number of the pollen type you think it is, and press enter. Then click on another grain and repeat the identification process until you've counted 10 grains. 
 
 At the end, a list will appear telling which grains you got wrong, and which ones correct for each of the pollen types in the database.
-
-
 
 ## Versioning
 
