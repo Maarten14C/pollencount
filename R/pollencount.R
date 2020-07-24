@@ -51,10 +51,14 @@ make_thumbnails = function(dirloc=c(), size="100x100") {
 #' @param dirloc the location of the folder with images (...). Currently the folder is filled with only a few pollen types and each folder has only a few roughly selected images of the pollen type as downloaded from various google searches. For future development, this would require more official sources.
 #' @param size the size of the photos as drawn on the device. Keep small for slightly more realistic simulations of the real thing. 
 #' @param thumb size of the thumbnail photos
+#' @param seed set a seed to ensure replicability of runs. Not used by default
 #' @examples 
 #' slide(20)
 #' @export
-slide = function(n=50, dirloc=c() , size=0.05, thumb="100x100") {
+slide = function(n=50, dirloc=c() , size=0.05, thumb="100x100", seed=c()) {
+  if(length(seed) > 0) # to ensure consistency between runs, if required
+    set.seed(seed)
+  
   # location of the photos of the pollen or other proxies
   # This folder should contain a folder 'images', which contain folders with the pollen types, and in those folders are multiple images of said pollen types. 
   # Some photos could be made be more difficult to ID than others - this still needs work. Identify difficulty with a code in the photo's filename? Or simply have a constant mix of easy and difficult grains in the folders?
