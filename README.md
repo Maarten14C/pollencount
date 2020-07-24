@@ -10,7 +10,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 You need to have a recent version of R installed (best >= 4.0.0), and have sufficient user privileges to be able to install additional R packages. 
 
-
 ### Installing
 
 Within R, type the following commands:
@@ -30,13 +29,21 @@ Now you should be able to install packages that are hosted on github, such as po
 install_github('maarten14C/pollencount')
 ```
 
+Next, load the package into your session:
+```
+library(pollencount)
+```
+
+## Running pollencount
+
+Now we're going to simulate a slide view with 50 randomly selected pollen types. For now, pollencount uses an in-built very basic and small database of pictures of only 4 pollen types (Quercus, Pinus, Alnus, Poaceae), with only a few photos for each pollen type. By default, only 50 types are selected, randomly
 
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
+This small database could either be expanded in the future, or more likely you can build your own database and link to it, through providing the directory of the database (in this example it's at "~/MyPollenPictures"):
+```
+slide(dirloc="~/MyPollenPictures")
+```
+The database should have folders containing the photos of the pollen types. The name of each folder is the name of the pollen type. Also provide a file proportions.csv in the top folder, which gives the to-be-simulated proportions of each pollen type.
 
 ### Break down into end to end tests
 
