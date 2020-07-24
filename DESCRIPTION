@@ -6,7 +6,7 @@ Date: 2020-07-21
 Author: Maarten Blaauw
 Maintainer: Maarten Blaauw <maarten.blaauw@qub.ac.uk>
 Description: Counting pollen from a slide under a microscope can be hard to learn. This simulation tool aims to help students and researchers to start to see what pollen looks like under the microscope, and start to identify common pollen grains. Some grains are more difficult than others, and this is also simulated. The user can see how well they did in identifying the pollen grains. Photos of pollen grains were found using google, but they can be replaced with other photos/databases.
-License: GPL (>= 2)
+License: MIT
 Imports: magick (>= 2.4.0), graphics, stats, utils
 RoxygenNote: 7.1.1
 Encoding: UTF-8

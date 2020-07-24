@@ -74,7 +74,7 @@ This package is inspired by the *colpol* pollen counting software developed by D
 
 ## License
 
-This project is licensed under the GPL (>= 2) licence.
+This project is licensed under the MIT licence.
 
 ## Acknowledgments
 
