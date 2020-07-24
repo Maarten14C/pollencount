@@ -54,7 +54,8 @@ slide(n=100)
 ```
 
 Now it's time for you to have a go at identifying some of the pollen grains in this slide, i.e., count them. By default, we count *m=10* at a time.
-```count()
+```
+count()
 ```
 
 Click on the device which shows the pollen grains, then once your cursor has changed to a + (or something similar), click on one of the grains to identify it. A list of options will appear in the terminal. Select the number of the pollen type you think it is, and press enter. Then click on another grain and repeat the identification process until you've counted 10 grains. 
