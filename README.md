@@ -14,7 +14,7 @@ You need to have a recent version of R installed (best >= 4.0.0), and have suffi
 
 Within R, type the following commands:
 
-To install the $devtools$ R package (if you haven't already done so):
+To install the *devtools* R package (if you haven't already done so):
 ```
 install.packages('devtools')
 ```
@@ -36,7 +36,7 @@ library(pollencount)
 
 ## Running pollencount
 
-Now we're going to simulate a slide view with 50 randomly selected pollen types. For now, pollencount uses an in-built very basic and small database of pictures of only 4 pollen types (Quercus, Pinus, Alnus, Poaceae), with only a few photos for each pollen type. By default, only 50 types are selected, randomly (according to the proportions listed in the file proportions.csv; see later). The command to simulate a slide is:
+Now we're going to simulate a slide view with 50 randomly selected pollen types. For now, pollencount uses an in-built very basic and small database of pictures of only 4 pollen types (Quercus, Pinus, Alnus, Poaceae), with only a few photos for each pollen type. By default, only 50 types are selected randomly (according to the proportions listed in the file proportions.csv; see later). The command to simulate a slide is:
 
 ```
 slide()
@@ -46,55 +46,38 @@ The small database that comes with this package could either be expanded in the 
 ```
 slide(dirloc="~/MyPollenPictures")
 ```
-The database should have folders containing the photos of the pollen types. The name of each folder is the name of the pollen type. Also provide a file proportions.csv in the top folder, which gives the to-be-simulated proportions of each pollen type. In the example database, this causes /Pinus/
+The database should have folders containing the photos of the pollen types. The name of each folder is the name of the pollen type. The photos should be saved, within their respective folder, as .png or .jpg files. Also provide a file proportions.csv in the top folder, which gives the to-be-simulated proportions of each pollen type. In the example database, this causes *Pinus* grains to be simulated at 10% abundance, *Alnus* at 30%, etc. 
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+You can change the number of simulated grains, e.g. to 100:
 ```
-Give an example
+slide(n=100)
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+Now it's time for you to have a go at identifying some of the pollen grains in this slide, i.e., count them. By default, we count *m=10* at a time.
+```count()
 ```
 
-## Deployment
+Click on the device which shows the pollen grains, then once your cursor has changed to a + (or something similar), click on one of the grains to identify it. A list of options will appear in the terminal. Select the number of the pollen type you think it is, and press enter. Then click on another grain and repeat the identification process until you've counted 10 grains. 
 
-Add additional notes about how to deploy this on a live system
+At the end, a list will appear telling which grains you got wrong, and which ones correct for each of the pollen types in the database.
 
-## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+This is version 0.1.0
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Maarten Blaauw** - *Initial work* - [https://github.com/maarten14C] [www.qub.ac.uk/chrono/blaauw]
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+This package is inspired by the *colpol* pollen counting software developed by Dr. Jane Bunting at the University of Hull. This package is aimed to provide an open-source, more platform-independent approach to learning pollen counting. 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL (>= 2) licence.
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+* Dr. Jane Bunting for the original idea
+* the ViPs Network [https://virtualpalaeoscience.wordpress.com/] 
