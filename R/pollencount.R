@@ -183,6 +183,7 @@ count = function(m=10, dat=info, mark=TRUE, cex=2, graphics=FALSE, round=0) {
     out[i+1] = length(which(result == i))
   out = cbind(c("(wrong)", dat$types), as.numeric(out))
   colnames(out) = c("type", "count")
+  message("\nYour counting results:")
   return(noquote(out))
 }
 
